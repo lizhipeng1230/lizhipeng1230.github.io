@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lizhipeng1230的博客</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <style>
+/* 设置整体样式 */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* 设置标题样式 */
+h1 {
+  font-size: 24px;
+  color: #333;
+  margin: 10px 0;
+}
+
+/* 设置文章正文样式 */
+.article {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+/* 设置日期样式 */
+.date {
+  font-size: 12px;
+  color: #999;
+}
+
+/* 设置链接样式 */
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* 设置页脚样式 */
+.footer {
+  font-size: 12px;
+  color: #999;
+  text-align: center;
+  padding: 10px;
+}
+
+        /* 设置页面标题样式 */
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 36px;
+            color: #333;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        
+        /* 设置文章列表样式 */
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        li {
+            padding: 10px;
+            margin-bottom: 5px;
+            background-color: #f2f2f2;
+            border-radius: 5px;
+            box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease-in-out;
+            font-family: "Times New Roman", Times, serif;
+        }
+        
+        li:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* 设置按钮样式 */
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease-in-out;
+            font-family: "Roboto", Arial, sans-serif;
+        }
+        
+        .btn:hover {
+            background-color: #555;
+        }
+    /* CSS样式 */
+    .red-text {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <h1 align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Welcome to Lizhipeng1230's Blog</h1>
+  <div class="search">
+    <p align="center">
+    <input type="text" placeholder="Search...">
+    <button>Go</button>
+  </div>
+  <div class="counter">
+    <p align="center">这个页面已被访问了 <span id="count">0</span> 次。</p>
+    <p align="center">
+    <button onclick="incrementCount()">+1</button>
+  </div>
+  <div class="calendar">
+    <h2 align="center">今天是：</h2>
+    <p id="currentDate" align="center"></p>
+    <h2 align="center">日历：</h2>
+    <div id="calendar">
+		<p align="center"></div>
+  </div>
+  <div class="video">
+    <h2 align="left">看看视频吧！：</h2>
+    <p align="left">
+    <video controls>
+      <source src="movie.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+  <div class="music">
+    <h2 align="left">音乐：</h2>
+	<p align="left">
+<audio controls>
+  <source src="https://music.163.com/outchain/player? type="2&id=1904309240&auto=1&height=66">
+  Your browser does not support the audio element.
+</audio>
+    
+  </div>
+  <div class="article">
+    <p align="left">这是我的个人博客，我会在这里分享一些有趣的内容。</p>
+    <p align="right">如果你想观看Bilibili，请点击下面的按钮：</p>
+    <p align="right">
+    <button onclick="openBilibili()">
+	<p align="right">打开Bilibili</button>
+    </p>
+    <p align="right">喜欢我的博客吗？快来订阅吧！</p>
+    <p align="right">
+    <button onclick="subscribe()">
+	<p align="right">订阅</button>
+    </p>
+    <p align="right">有什么问题想问我吗？</p>
+    <p align="right">
+    <input type="text" id="question" placeholder="输入你的问题">
+    <button onclick="getAnswer()">
+	<p align="right">获取答案</button>
+    </p>
+    <p id="answer" align="center"></p>
+  </div>
+  
+
+  <p align="center">
+
+  <script>
+    var count = 0;
+
+    function openBilibili() {
+      window.open("https://space.bilibili.com/1500085307?spm_id_from=333.1007.0.0");
+    }
+
+    function incrementCount() {
+      count++;
+      document.getElementById("count").innerText = count;
+    }
+
+    function subscribe() {
+      alert("谢谢你的订阅！");
+    }
+
+    function getAnswer() {
+      var question = document.getElementById("question").value;
+      var answer = "这是一个示例回答。";
+      document.getElementById("answer").innerText = answer;
+    }
+
+    function getCurrentDate() {
+      var currentDate = new Date().toLocaleDateString();
+      document.getElementById("currentDate").innerText = currentDate;
+    }
+
+    function generateCalendar() {
+      var calendar = document.getElementById("calendar");
+      var currentDate = new Date();
+      var currentYear = currentDate.getFullYear();
+      var currentMonth = currentDate.getMonth();
+
+      var monthNames = [
+        "一月", "二月", "三月", "四月", "五月", "六月",
+        "七月", "八月", "九月", "十月", "十一月", "十二月"
+      ];
+
+      var firstDay = new Date(currentYear, currentMonth, 1).getDay();
+      var daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+
+      var calendarHTML = "<table><tr><th colspan='7'>" + monthNames[currentMonth] + " " + currentYear + "</th></tr>";
+      calendarHTML += "<tr><th>周日</th><th>周一</th><th>周二</th><th>周三</th><th>周四</th><th>周五</th><th>周六</th></tr>";
+
+      var date = 1;
+      for (var i = 0; i < 6; i++) {
+        calendarHTML += "<tr>";
+        for (var j = 0; j < 7; j++) {
+          if (i === 0 && j < firstDay) {
+            calendarHTML += "<td></td>";
+          } else if (date > daysInMonth) {
+            break;
+          } else {
+            calendarHTML += "<td>" + date + "</td>";
+            date++;
+          }
+        }
+        calendarHTML += "</tr>";
+      }
+
+      calendarHTML += "</table>";
+      calendar.innerHTML = calendarHTML;
+    }
+
+    getCurrentDate();
+    generateCalendar();
+  </script>
+
+ <h2>文章列表</h2>
+    <ul>
+        <li>文章1 <a href="#" class="btn">阅读更多</a></li>
+        <li>文章2 <a href="#" class="btn">阅读更多</a></li>
+        <li>文章3 <a href="#" class="btn">阅读更多</a></li>
+    </ul>
+
+  <script>
+    // JavaScript代码
+    function makeTextRed() {
+      var elements = document.getElementsByTagName("p");
+      for (var i = 0; i < elements.length; i++) {
+        elements[i].classList.add("red-text");
+      }
+    }
+  </script>
+
+  <button onclick="makeTextRed()">变红</button>
+	</p>
+<div class="footer">
+    &copy; 2023 Lizhipeng1230. All rights reserved.
+  </div>
+</body>
+</html>
